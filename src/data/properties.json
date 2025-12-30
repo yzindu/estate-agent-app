@@ -31,5 +31,85 @@
                 "day":14,
                 "year":2022
             }
+        },
+        {
+            "id": "prop3",
+            "type": "Flat",
+            "bedrooms": 1,
+            "price": 275000,
+            "tenure": "Leasehold",
+            "description": "A modern, compact one-bedroom apartment perfect for first-time buyers. Located near the city center with excellent transport links. Features a Juliet balcony and allocated parking space.",
+            "location": "High Street, Bromley BR1",
+            "picture": "images/prop3.jpg",
+            "url": "properties/prop3.html",
+            "added": {
+                "month": "January",
+                "day": 5,
+                "year": 2026
+            }
+        },
+        {
+            "id": "prop4",
+            "type": "House",
+            "bedrooms": 4,
+            "price": 650000,
+            "tenure": "Freehold",
+            "description": "Spacious detached house with a large garden and garage. Ideal for growing families. Includes a master bedroom with en-suite, a large family bathroom, and a downstairs study.",
+            "location": "Manor Park, Lewisham SE13",
+            "picture": "images/prop4.jpg",
+            "url": "properties/prop4.html",
+            "added": {
+                "month": "November",
+                "day": 20,
+                "year": 2025
+            }
+        },
+        {
+            "id": "prop5",
+            "type": "Flat",
+            "bedrooms": 2,
+            "price": 450000,
+            "tenure": "Share of Freehold",
+            "description": "Luxury penthouse apartment with stunning views of the skyline. Features a wrap-around terrace, concierge service, and gym access.",
+            "location": "Canary Wharf, London E14",
+            "picture": "images/prop5.jpg",
+            "url": "properties/prop5.html",
+            "added": {
+                "month": "December",
+                "day": 10,
+                "year": 2025
+            }
+        },
+        {
+            "id": "prop6",
+            "type": "House",
+            "bedrooms": 3,
+            "price": 525000,
+            "tenure": "Freehold",
+            "description": "Charming Victorian terrace house with original features including fireplaces and sash windows. The property has a loft conversion which serves as the third bedroom.",
+            "location": "Crystal Palace Park Road, London SE19",
+            "picture": "images/prop6.jpg",
+            "url": "properties/prop6.html",
+            "added": {
+                "month": "November",
+                "day": 2,
+                "year": 2025
+            }
+        },
+        {
+            "id": "prop7",
+            "type": "House",
+            "bedrooms": 5,
+            "price": 850000,
+            "tenure": "Freehold",
+            "description": "Expansive 5-bedroom family home with a double garage and driveway. Features a large conservatory, separate dining room, and a utility room. The garden is over 100ft long.",
+            "location": "Chislehurst Road, Chislehurst BR7",
+            "picture": "images/prop7.jpg",
+            "url": "properties/prop7.html",
+            "added": {
+                "month": "October",
+                "day": 25,
+                "year": 2025
+            }
         }
 ]}
