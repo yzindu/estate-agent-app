@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDrop } from 'react-dnd';
 
-const FavoritesList = ({ favorites, onRemove, onClear }) => {
+const Favorites = ({ favorites, onRemove, onClear }) => {
   // Setup Drop Target Logic
   const [{ isOver }, dropRef] = useDrop(() => ({
     accept: 'PROPERTY', // Must match the type in PropertyCard
@@ -49,4 +49,4 @@ const FavoritesList = ({ favorites, onRemove, onClear }) => {
   );
 };
 
-export default FavoritesList;
+export default Favorites;

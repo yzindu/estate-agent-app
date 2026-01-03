@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import SearchBox from '../components/SearchBox';
 import PropertyCard from '../components/PropertyCard';
-import FavoritesList from '../components/FavoritesList';
+import FavoritesList from '../components/Favorites';
 import propertiesData from '../data/properties.json';
 
 const SearchPage = () => {
