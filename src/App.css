@@ -13,14 +13,13 @@ body {
 /* --- MAIN LAYOUT CONTAINER --- */
 .search-page-container {
   display: grid;
-  grid-template-columns: 3fr minmax(300px, 1fr); 
+  grid-template-columns: 3fr 1fr;
+  /* 3 parts Results, 1 part Sidebar */
   gap: 30px;
-  
-  /* Centering Logic */
-  max-width: 100%;     
-  width: 100%;      
-  margin: 0;             
-  padding: 20px 40px;   
+  max-width: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 20px 40px;
 }
 
 /* Navbar */
@@ -29,9 +28,8 @@ body {
   padding: 15px;
   color: white;
   text-align: center;
-  align-items: center;
   margin-bottom: 20px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .navbar h1 {
@@ -39,16 +37,116 @@ body {
   font-size: 1.5rem;
 }
 
-/* --- PROPERTY GRID (The Results Area) --- */
+/* =========================================
+  SEARCH BOX STYLES
+   ========================================= */
+.search-box {
+  background-color: white;
+  padding: 25px;
+  border-radius: 12px;
+  /* Smooth corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  /* Soft modern shadow */
+  margin-bottom: 30px;
+  border: 1px solid #eee;
+}
+
+/* The Grid Layout (2 Columns for inputs) */
+.search-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* Two equal columns */
+  gap: 20px;
+  /* Consistent spacing */
+}
+
+/* Form Fields Styling */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  color: #2c3e50;
+}
+
+.form-group input,
+.form-group select {
+  padding: 12px;
+  border: 1px solid #dfe6e9;
+  border-radius: 6px;
+  font-size: 1rem;
+  background-color: #fff;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #3498db;
+  /* Blue glow on focus */
+}
+
+/* Search Box Buttons */
+.button-group {
+  grid-column: 1 / -1;
+  /* Spans across both columns */
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.search-btn {
+  flex: 2;
+  /* Bigger Search Button */
+  padding: 12px;
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.search-btn:hover {
+  background-color: #219150;
+}
+
+.clear-btn {
+  flex: 1;
+  /* Smaller Clear Button */
+  padding: 12px;
+  background-color: #95a5a6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.clear-btn:hover {
+  background-color: #7f8c8d;
+}
+
+
+/* =========================================
+   PROPERTY CARD STYLES 
+   ========================================= */
 .property-grid {
   display: grid;
-  /* Auto-fit creates as many columns as fit. minmax(280px, 1fr) stops them getting too thin */
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 25px;
   width: 100%;
 }
 
-/* --- CARD STYLING --- */
 .property-card {
   background: white;
   border: 1px solid #e0e0e0;
@@ -61,7 +159,7 @@ body {
 
 .property-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .card-image {
@@ -78,7 +176,7 @@ body {
 }
 
 .property-card:hover .card-image img {
-  transform: scale(1.05); /* Subtle zoom effect */
+  transform: scale(1.05);
 }
 
 .card-details {
@@ -130,14 +228,13 @@ body {
 .card-meta {
   font-size: 0.85rem;
   color: #95a5a6;
-  margin-top: auto; /* Pushes meta to bottom of text area */
+  margin-top: auto;
   padding-top: 15px;
   border-top: 1px solid #eee;
   display: flex;
   justify-content: space-between;
 }
 
-/* Buttons */
 .card-actions {
   display: flex;
   gap: 10px;
@@ -174,24 +271,23 @@ body {
   cursor: pointer;
   font-size: 1.2rem;
   transition: background 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .fav-btn:hover {
   background: #c0392b;
 }
 
-/* --- SIDEBAR (FAVORITES) --- */
 
+/* =========================================
+   SIDEBAR & FAVORITES 
+   ========================================= */
 .favorites-list {
   background: white;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   position: sticky;
-  top: 20px; /* Stays visible when scrolling */
+  top: 20px;
 }
 
 .fav-item {
@@ -202,19 +298,11 @@ body {
   padding: 12px 0;
 }
 
-.fav-item:last-child {
-  border-bottom: none;
-}
-
 .fav-item img {
   width: 60px;
   height: 60px;
   object-fit: cover;
   border-radius: 6px;
-}
-
-.fav-info {
-  flex: 1;
 }
 
 .fav-info h4 {
@@ -238,26 +326,11 @@ body {
   cursor: pointer;
   padding: 0 5px;
   opacity: 0.7;
-  transition: opacity 0.2s;
+  margin-left: auto;
 }
 
 .remove-btn:hover {
   opacity: 1;
-}
-
-.clear-btn {
-  background: #95a5a6;
-  color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.8rem;
-  transition: background 0.2s;
-}
-
-.clear-btn:hover {
-  background: #7f8c8d;
 }
 
 /* --- RESPONSIVE BREAKPOINTS --- */
