@@ -11,7 +11,7 @@ function App() {
       <Router>
         <div className="App">
           <nav className="navbar">
-              <h1>Estate Agent App</h1>
+            <h1>Estate Agent App</h1>
           </nav>
           <Routes>
             <Route path="/" element={<SearchPage />} />

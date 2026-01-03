@@ -19,9 +19,9 @@ const SearchPage = () => {
   const handleAddToFavorites = (property) => {
     // Check if already in favorites to prevent duplicates
     if (!favorites.some(fav => fav.id === property.id)) {
-        setFavorites([...favorites, property]);
+      setFavorites([...favorites, property]);
     } else {
-        alert("This property is already in your favorites!");
+      alert("This property is already in your favorites!");
     }
   };
 
@@ -41,18 +41,18 @@ const SearchPage = () => {
 
   const handleSearch = (criteria) => {
     const results = properties.filter(property => {
-        if (criteria.type !== 'Any' && property.type !== criteria.type) return false;
-        if (criteria.minPrice && property.price < Number(criteria.minPrice)) return false;
-        if (criteria.maxPrice && property.price > Number(criteria.maxPrice)) return false;
-        if (criteria.minBeds && property.bedrooms < Number(criteria.minBeds)) return false;
-        if (criteria.maxBeds && property.bedrooms > Number(criteria.maxBeds)) return false;
-        if (criteria.postcode && !property.location.toLowerCase().includes(criteria.postcode.toLowerCase())) return false;
+      if (criteria.type !== 'Any' && property.type !== criteria.type) return false;
+      if (criteria.minPrice && property.price < Number(criteria.minPrice)) return false;
+      if (criteria.maxPrice && property.price > Number(criteria.maxPrice)) return false;
+      if (criteria.minBeds && property.bedrooms < Number(criteria.minBeds)) return false;
+      if (criteria.maxBeds && property.bedrooms > Number(criteria.maxBeds)) return false;
+      if (criteria.postcode && !property.location.toLowerCase().includes(criteria.postcode.toLowerCase())) return false;
 
-        const propDate = new Date(property.added.year, getMonthNum(property.added.month), property.added.day);
-        if (criteria.dateAfter && propDate < new Date(criteria.dateAfter)) return false;
-        if (criteria.dateBefore && propDate > new Date(criteria.dateBefore)) return false;
+      const propDate = new Date(property.added.year, getMonthNum(property.added.month), property.added.day);
+      if (criteria.dateAfter && propDate < new Date(criteria.dateAfter)) return false;
+      if (criteria.dateBefore && propDate > new Date(criteria.dateBefore)) return false;
 
-        return true;
+      return true;
     });
     setFilteredProperties(results);
   };
@@ -62,29 +62,29 @@ const SearchPage = () => {
       {/* LEFT COLUMN: Search & Results */}
       <div className="main-content">
         <SearchBox onSearch={handleSearch} />
-        
+
         <div className="results-info">
-            {filteredProperties.length === 0 ? "No properties found." : `Found ${filteredProperties.length} properties:`}
+          {filteredProperties.length === 0 ? "No properties found." : `Found ${filteredProperties.length} properties:`}
         </div>
 
         <div className="property-grid">
-            {filteredProperties.map(property => (
-                <PropertyCard 
-                    key={property.id} 
-                    property={property} 
-                    onAddToFavorites={handleAddToFavorites} // Pass function down
-                />
-            ))}
+          {filteredProperties.map(property => (
+            <PropertyCard
+              key={property.id}
+              property={property}
+              onAddToFavorites={handleAddToFavorites} // Pass function down
+            />
+          ))}
         </div>
       </div>
 
       {/* RIGHT COLUMN: Favorites Sidebar */}
       <div className="sidebar">
-          <FavoritesList 
-              favorites={favorites} 
-              onRemove={handleRemoveFavorite} 
-              onClear={handleClearFavorites}
-          />
+        <FavoritesList
+          favorites={favorites}
+          onRemove={handleRemoveFavorite}
+          onClear={handleClearFavorites}
+        />
       </div>
     </div>
   );
