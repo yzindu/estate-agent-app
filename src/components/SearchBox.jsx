@@ -14,6 +14,24 @@ const SearchBox = ({ onSearch }) => {
     // 2. Handlers
     const handleSubmit = (e) => {
         e.preventDefault();
+        
+        // Basic Validation
+        if (Number(minPrice) < 0 || Number(maxPrice) < 0) {
+            alert("Prices cannot be negative!");
+            return; 
+        }
+
+        if (Number(minBeds) < 0 || Number(maxBeds) < 0) {
+            alert("Bedrooms cannot be negative!");
+            return;
+        }
+
+        // 3. Logic Check: Min cannot be bigger than Max
+        if (minPrice && maxPrice && Number(minPrice) > Number(maxPrice)) {
+            alert("Min Price cannot be higher than Max Price");
+            return;
+        }
+        
         onSearch({
             type, minPrice, maxPrice, minBeds, maxBeds, postcode, dateAfter, dateBefore
         });
