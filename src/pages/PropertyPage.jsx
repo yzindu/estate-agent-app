@@ -98,8 +98,7 @@ const PropertyPage = () => {
 
                     <TabPanel>
                         <div style={{ textAlign: 'center', padding: '20px', background: '#f9f9f9' }}>
-                            <img src="https://via.placeholder.com/600x400?text=Floor+Plan+Placeholder" alt="Floorplan" style={{ maxWidth: '100%' }} />
-                            <p>Interactive floor plan not available for this demo.</p>
+                            <img src={`${import.meta.env.BASE_URL}images/floor${property.id.replace('prop', '')}.jpg`} style={{ maxWidth: '100%' }} />
                         </div>
                     </TabPanel>
 
