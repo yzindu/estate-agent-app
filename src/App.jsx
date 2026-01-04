@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import SearchPage from './pages/SearchPage';
+import PropertyPage from './pages/PropertyPage';
 import './App.css'; // css styles
 
 function App() {
