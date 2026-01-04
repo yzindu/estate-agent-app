@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css'; // Standard styles for tabs
 import propertiesData from '../data/properties.json';
+import DOMPurify from 'dompurify';
 
 const PropertyPage = () => {
     const { id } = useParams(); // Get the ID from the URL
@@ -17,7 +18,7 @@ const PropertyPage = () => {
 
     // Use a placeholder images array
     const images = [
-        `/${property.picture}`,             // The main image 
+        `/${property.picture}`,        // The main image 
         `/images/${id}_1.jpg`,         // images/prop1_1.jpg
         `/images/${id}_2.jpg`,
         `/images/${id}_3.jpg`,
@@ -83,7 +84,11 @@ const PropertyPage = () => {
 
                     <TabPanel>
                         <h3>Property Description</h3>
-                        <p style={{ lineHeight: '1.6', color: '#555' }}>{property.description}</p>
+                        <div style={{ lineHeight: '1.8', color: '#555', fontSize: '1.1rem' }}
+                            dangerouslySetInnerHTML={{
+                                __html: DOMPurify.sanitize(property.description)
+                            }}
+                        />
                         <ul style={{ marginTop: '10px', color: '#666' }}>
                             <li><strong>Bedrooms:</strong> {property.bedrooms}</li>
                             <li><strong>Tenure:</strong> {property.tenure}</li>
