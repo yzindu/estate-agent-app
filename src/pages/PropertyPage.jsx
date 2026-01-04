@@ -10,7 +10,7 @@ const PropertyPage = () => {
     const property = propertiesData.properties.find(p => p.id === id);
 
     // State for the main image in the gallery
-    const [mainImage, setMainImage] = useState(property ? property.picture : '');
+    const [mainImage, setMainImage] = useState(property ? `/${property.picture}` : '');
 
     if (!property) {
         return <div style={{ padding: '20px' }}><h2>Property not found</h2><Link to="/">Back to Search</Link></div>;

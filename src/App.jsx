@@ -15,6 +15,7 @@ function App() {
           </nav>
           <Routes>
             <Route path="/" element={<SearchPage />} />
+            <Route path="/property/:id" element={<PropertyPage />} />
           </Routes>
         </div>
       </Router>
