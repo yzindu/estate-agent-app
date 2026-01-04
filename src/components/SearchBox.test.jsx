@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import SearchBox from './SearchBox';
 
 /* Test Cases */
-describe('SearchBox Component',() => {
+describe('SearchBox Component', () => {
     // test case 01 : check user inputs works
     it('allows typing in the postcode field', async () => {
         const user = userEvent.setup();
@@ -28,7 +28,7 @@ describe('SearchBox Component',() => {
         const searchButton = screen.getByRole('button', { name: /Search/i });
 
         // Simulate clicking the search button
-        await user.click(searchButton); 
+        await user.click(searchButton);
         // Verify onSearch called with default parameters
         expect(mockOnSearch).toHaveBeenCalledWith({
             type: 'Any',
@@ -45,15 +45,15 @@ describe('SearchBox Component',() => {
     // test case 03 : check negative scenario for price range
     it('shows alert if negative price is entered', async () => {
         const user = userEvent.setup();
-        const mockOnSearch = vi.fn(); 
-        
-        window.alert = vi.fn(); 
+        const mockOnSearch = vi.fn();
+
+        window.alert = vi.fn();
 
         render(<SearchBox onSearch={mockOnSearch} />);
 
         // Find min price input (assuming it's the first input with '0' placeholder)
         const inputs = screen.getAllByPlaceholderText('0');
-        const minPriceInput = inputs[0]; 
+        const minPriceInput = inputs[0];
 
         // Type a negative number
         await user.type(minPriceInput, '-500');
@@ -66,5 +66,22 @@ describe('SearchBox Component',() => {
         expect(mockOnSearch).not.toHaveBeenCalled();
     });
 
+    // Test 4: Check if Clear button resets the form
+    it('clears inputs when Clear Filters button is clicked', async () => {
+        const user = userEvent.setup();
+        render(<SearchBox onSearch={() => { }} />);
+
+        const postcodeInput = screen.getByPlaceholderText(/e.g. BR1/i);
+
+        // 1. Type something
+        await user.type(postcodeInput, 'SE15');
+        expect(postcodeInput).toHaveValue('SE15'); // Confirm it was typed
+
+        // 2. Click Clear
+        await user.click(screen.getByRole('button', { name: /Clear Filters/i }));
+
+        // 3. Verify it is empty
+        expect(postcodeInput).toHaveValue('');
+    });
 
 });
