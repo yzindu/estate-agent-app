@@ -9,7 +9,7 @@ import './App.css'; // css styles
 function App() {
   return (
     <DndProvider backend={HTML5Backend}>
-      <Router>
+      <Router basename='/estate-agent-app'>
         <div className="App">
           <nav className="navbar">
             <h1>Estate Agent App</h1>
