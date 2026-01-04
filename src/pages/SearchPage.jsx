@@ -84,6 +84,7 @@ const SearchPage = () => {
           favorites={favorites}
           onRemove={handleRemoveFavorite}
           onClear={handleClearFavorites}
+          onDrop={handleAddToFavorites}
         />
       </div>
     </div>

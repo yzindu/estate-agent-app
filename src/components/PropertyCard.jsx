@@ -8,7 +8,7 @@ const PropertyCard = ({ property, onAddToFavorites }) => {
     // Setup Drag Source Logic
     const [{ isDragging }, dragRef] = useDrag(() => ({
         type: 'PROPERTY',
-        item: { id, onDrop: () => onAddToFavorites(property) }, // Pass the data to the drop zone
+        item: { property },
         collect: (monitor) => ({
             isDragging: !!monitor.isDragging(),
         }),

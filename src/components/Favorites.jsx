@@ -1,15 +1,15 @@
 import React from 'react';
 import { useDrop } from 'react-dnd';
 
-const Favorites = ({ favorites, onRemove, onClear }) => {
+const Favorites = ({ favorites, onRemove, onClear, onDrop }) => {
   // Setup Drop Target Logic
   const [{ isOver }, dropRef] = useDrop(() => ({
     accept: 'PROPERTY', // Must match the type in PropertyCard
-    drop: (item) => item.onDrop(item.id), // Call the function passed from the card
+    drop: (item) => onDrop(item.property), 
     collect: (monitor) => ({
       isOver: !!monitor.isOver(),
     }),
-  }));
+  }), [favorites]);
 
   return (
     <div
