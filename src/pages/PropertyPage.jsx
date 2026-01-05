@@ -18,13 +18,15 @@ const PropertyPage = () => {
 
     // Use a placeholder images array
     const images = [
-        `/${property.picture}`,        // The main image 
-        `/images/${id}_1.jpg`,         // images/prop1_1.jpg
-        `/images/${id}_2.jpg`,
-        `/images/${id}_3.jpg`,
-        `/images/${id}_4.jpg`,
-        `/images/${id}_5.jpg`,
-        `/images/${id}_6.jpg`
+        `${import.meta.env.BASE_URL}${property.picture}`,  // Main image
+        `${import.meta.env.BASE_URL}images/${id}_1.jpg`,    // Additional images
+        `${import.meta.env.BASE_URL}images/${id}_2.jpg`,
+        `${import.meta.env.BASE_URL}images/${id}_3.jpg`,
+        `${import.meta.env.BASE_URL}images/${id}_2.jpg`,
+        `${import.meta.env.BASE_URL}images/${id}_3.jpg`,
+        `${import.meta.env.BASE_URL}images/${id}_4.jpg`,
+        `${import.meta.env.BASE_URL}images/${id}_5.jpg`,
+        `${import.meta.env.BASE_URL}images/${id}_6.jpg`
     ];
 
     return (

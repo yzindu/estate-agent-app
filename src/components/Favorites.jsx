@@ -35,7 +35,7 @@ const Favorites = ({ favorites, onRemove, onClear, onDrop }) => {
         <ul style={{ listStyle: 'none', padding: 0 }}>
           {favorites.map(fav => (
             <li key={fav.id} className="fav-item">
-              <img src={fav.picture} alt="thumb" />
+              <img src={`${import.meta.env.BASE_URL}${fav.picture}`} alt="thumb" />
               <div className="fav-info">
                 <h4>{fav.type}</h4>
                 <p>£{fav.price.toLocaleString()}</p>

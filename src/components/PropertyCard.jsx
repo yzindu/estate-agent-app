@@ -22,7 +22,7 @@ const PropertyCard = ({ property, onAddToFavorites }) => {
         >
             <div className="card-image">
                 <img
-                    src={`/${picture}`}
+                    src={`${import.meta.env.BASE_URL}${picture}`}
                     alt={type}
                     onError={(e) => { e.target.src = 'https://via.placeholder.com/400x300?text=No+Image'; }}
                 />

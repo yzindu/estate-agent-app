@@ -19,6 +19,8 @@ describe('PropertyCard Component', () => {
         added: { month: "January", day: 12, year: 2025 }
     };
 
+    // Test 5: Check if property details render correctly
+    
     it('displays the correct property details', () => {
         render(
             <DndProvider backend={HTML5Backend}>
