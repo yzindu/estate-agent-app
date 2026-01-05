@@ -21,8 +21,6 @@ const PropertyPage = () => {
         `${import.meta.env.BASE_URL}images/${id}_1.jpg`,
         `${import.meta.env.BASE_URL}images/${id}_2.jpg`,
         `${import.meta.env.BASE_URL}images/${id}_3.jpg`,
-        `${import.meta.env.BASE_URL}images/${id}_2.jpg`,
-        `${import.meta.env.BASE_URL}images/${id}_3.jpg`,
         `${import.meta.env.BASE_URL}images/${id}_4.jpg`,
         `${import.meta.env.BASE_URL}images/${id}_5.jpg`,
         `${import.meta.env.BASE_URL}images/${id}_6.jpg`
